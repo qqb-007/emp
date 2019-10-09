@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="DAO.SmuserwordDAO">
+
+
+    <select id="queryAll" resultType="entity.Smuserword">
+		select e1.name username,e2.* from smuserword e2 left join smuser e1 on e1.id=e2.userid
+	</select>
+
+    <update id="update">
+		update smuserword set up=#{1},down=#{2} where id=#{0}
+	</update>
+
+    <insert id="add" parameterType="entity.Smuserword">
+
+		insert into smuserword values(smword.nextval,'${word}',0,0,'${userid}')
+	</insert>
+
+</mapper>

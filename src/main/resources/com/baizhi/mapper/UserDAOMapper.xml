@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="DAO.UserDAO">
+
+    <select id="queryUser" parameterType="entity.User" resultType="entity.User">
+		select * from sm_user
+		where username=#{username} and password=#{password}
+	</select>
+
+
+    <select id="queryAllUser" resultType="entity.User">
+		select * from sm_user
+	</select>
+
+    <select id="queryUserByID" parameterType="int" resultType="entity.User">
+	   select * from sm_user where id = #{id}
+	</select>
+
+    <update id="upDate">
+		update sm_user set username=#{1},salary=#{2},age=#{3} where id=#{0}
+	</update>
+
+    <insert id="add" parameterType="entity.User">
+		insert into sm_user values(sm_userid.nextval,'${username}','${password}',${salary},${age})
+	</insert>
+
+    <delete id="delete" parameterType="int">
+		delete from sm_user where id=#{id}
+	</delete>
+
+</mapper>

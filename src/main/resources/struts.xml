@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>	
+	
+	<package name="sm" extends="struts-default">
+			<action name="user_*" class="action.UserAction" method="{1}">
+				<result name="loginUserSuccess" type="redirectAction">user_showAllUser</result>
+				<result name="loginUserError">/login.jsp</result>
+				<result name="showAllUserSuccess">/emplist.jsp</result>
+				<result name="showUserSuccess">/updateEmp.jsp</result>
+				<result name="upDateUserSuccess" type="redirectAction">user_showAllUser</result>
+				<result name="addSuccess" type="redirectAction">user_showAllUser</result>
+				<result name="deleteSuccess" type="redirectAction">user_showAllUser</result>
+				<result name="addSuccess1">/login.jsp</result>
+				<result name="addSuccess2">/regist.jsp</result>
+				<result name="showAllsmwordSuccess">/smlist.jsp</result>
+
+			</action>
+
+		<action name="code" class="action.UserAction" method="codeImg">
+		</action>
+		<action name="ajax3" class="action.UserAction" method="ajax3">
+		</action>
+		<action name="ajax4" class="action.UserAction" method="ajax4">
+		</action>
+		</package>
+	
+	
+</struts>
+

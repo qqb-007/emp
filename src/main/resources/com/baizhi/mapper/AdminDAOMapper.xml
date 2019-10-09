@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="DAO.AdminDAO">
+
+    <select id="selectAdmin" parameterType="entity.Admin" resultType="entity.Admin">
+		select * from smadmin
+		where username=#{username} and password=#{password}
+	</select>
+
+
+
+    <insert id="add" parameterType="entity.Admin">
+		insert into smadmin values(sm_userid.nextval,'${name}','${username}','${password}','${sex}')
+	</insert>
+
+
+
+</mapper>
